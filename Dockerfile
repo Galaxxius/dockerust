@@ -55,6 +55,12 @@ RUN apt-get install -y nodejs
 ADD shutdown_app/ /shutdown_app/
 WORKDIR /shutdown_app
 RUN npm install
+
+# Install Oxide, too
+RUN mkdir -p /oxide
+RUN curl -sL https://github.com/OxideMod/Snapshots/raw/master/Oxide-Rust_Linux.zip | bsdtar -xvf- -C /oxide
+RUN chmod +x /oxide/CSharpCompiler && chmod +x /oxide/CSharpCompiler.x86
+
 WORKDIR /
 
 # Expose necessary ports
@@ -68,13 +74,16 @@ ENV RUST_SERVER_IDENTITY "dockerust"
 ENV RUST_SERVER_SEED "1337"
 ENV RUST_SERVER_NAME "dockerust"
 ENV RUST_SERVER_DESCRIPTION "This is a Rust server running inside a Docker container!"
-ENV RUST_SERVER_URL "https://hub.docker.com/r/didstopia/rust-server/"
+ENV RUST_SERVER_URL "https://github.com/Galaxxius"
 ENV RUST_SERVER_BANNER_URL ""
+ENV RUST_SERVER_MAXPLAYERS "50"
+ENV RUST_SERVER_WORLDSIZE "4000"
 ENV RUST_RCON_WEB "1"
 ENV RUST_RCON_PORT "28016"
 ENV RUST_RCON_PASSWORD "otherpw"
 ENV RUST_RESPAWN_ON_RESTART "0"
 ENV RUST_DISABLE_AUTO_UPDATE "0"
+
 
 # Start the server
 ENTRYPOINT ["./start.sh"]
