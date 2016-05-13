@@ -1,21 +1,20 @@
-# ACHTUNG 
+# Rust server that runs inside a Digital Ocean Docker oneclick-app
+
+**NOTE**: 
 This is just a copy/fork of **@Dids** (on Twitter) great project Didstopia/rust-server. 
 I love it! Thank you for bringing Rust into a handy format and creating this, Dids <3
-
 So, all thanks go to Dids. I do some modifications here only for learning purposes.
 
--Galaxxius
-# ACHTUNG ENDE 
+Use cloudconfig.yaml for a Docker one-click app on Digital Ocean:
+https://www.digitalocean.com/features/one-click-apps/docker/
 
-# Rust server that runs inside a Docker container
-
-**NOTE**: This image will install/update on startup. The path ```/steamcmd/rust``` can be mounted on the host for data persistence.
-Also note that this image provides the new web-based RCON, so you should set ```RUST_RCON_PASSWORD``` to a more secure password.
+You should set ```RUST_RCON_PASSWORD``` to a more secure password.
 
 # How to run the server
-1. Set the environment variables you wish to modify from below (note the RCON password!)
-2. Optionally mount ```/steamcmd/rust``` somewhere on the host or inside another container to keep your data safe
-3. Enjoy!
+1. Select the docker oneclick-app and paste the cloud config data
+2. Set/change the environment variables you wish to modify from below (especially the RCON password!)
+3. Spin up the droplet
+4. Enjoy!
 
 The following environment variables are available:
 ```
