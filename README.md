@@ -8,6 +8,14 @@ So, all thanks go to Dids. I do some modifications here only for learning purpos
 Use cloudconfig.yaml for a Docker one-click app on Digital Ocean:
 https://www.digitalocean.com/features/one-click-apps/docker/
 
+Be sure to choose a droplet with at least 2GB RAM ;)
+
+#What´s inside
+1. Fresh Rust
+2. Fresh Oxide
+3. Fresh webrcon ( port 80)
+4. All server data is persisted on the host droplet in /steamcmd/rust
+
 You should set ```RUST_RCON_PASSWORD``` to a more secure password.
 
 # How to run the server
