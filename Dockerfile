@@ -30,9 +30,9 @@ RUN rm -fr /usr/share/nginx/html/* && \
 	rm -fr /etc/nginx/sites-available/* && \
 	rm -fr /etc/nginx/sites-enabled/*
 
-# Install webrcon
+# Install webrcon from Facepunch <3
 COPY nginx_rcon.conf /etc/nginx/nginx.conf
-RUN curl -sL https://github.com/Didstopia/webrcon/archive/gh-pages.zip | bsdtar -xvf- -C /tmp && \
+RUN curl -sL https://github.com/Facepunch/webrcon/archive/gh-pages.zip | bsdtar -xvf- -C /tmp && \
 	mv /tmp/webrcon-gh-pages/* /usr/share/nginx/html/ && \
 	rm -fr /tmp/webrcon-gh-pages
 
@@ -56,7 +56,7 @@ ADD shutdown_app/ /shutdown_app/
 WORKDIR /shutdown_app
 RUN npm install
 
-# Install Oxide, too
+# Prepare Oxide
 RUN mkdir -p /oxide
 RUN curl -sL https://github.com/OxideMod/Snapshots/raw/master/Oxide-Rust_Linux.zip | bsdtar -xvf- -C /oxide
 RUN chmod +x /oxide/CSharpCompiler && chmod +x /oxide/CSharpCompiler.x86
