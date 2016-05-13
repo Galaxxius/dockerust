@@ -1,49 +1,72 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Dockerust by Galaxxius</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Dockerust</h1>
-      <h2 class="project-tagline">Provides a dedicated linux server for Rust (the game) running inside a Docker container.</h2>
-      <a href="https://github.com/Galaxxius/dockerust" class="btn">View on GitHub</a>
-      <a href="https://github.com/Galaxxius/dockerust/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/Galaxxius/dockerust/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/Galaxxius/dockerust">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/Galaxxius/dockerust/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/Galaxxius/dockerust/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <section class="main-content">
-      <h1>
-<a id="achtung" class="anchor" href="#achtung" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ACHTUNG</h1>
+    <div class="wrapper">
 
-<p>This is just a copy/fork of <strong><a href="https://github.com/Dids" class="user-mention">@Dids</a></strong> (on Twitter) great project Didstopia/rust-server. 
-I love it! Thank you for bringing Rust into a handy format and creating this, Dids &lt;3</p>
+      <section>
+        <div id="title">
+          <h1>Dockerust</h1>
+          <p>Provides a dedicated linux server for Rust (the game) running inside a Docker container.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/Galaxxius">Galaxxius</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-<p>So, all thanks go to Dids. I do some modifications here only for learning purposes.</p>
+        <h1>
+<a id="rust-server-that-runs-inside-a-digital-ocean-docker-oneclick-app" class="anchor" href="#rust-server-that-runs-inside-a-digital-ocean-docker-oneclick-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rust server that runs inside a Digital Ocean Docker oneclick-app</h1>
 
-<p>-Galaxxius</p>
+<p><strong>NOTE</strong>: 
+This is just a copy/fork of <strong><a href="https://github.com/Dids" class="user-mention">@Dids</a></strong> (on Twitter) great project Didstopia/rust-server. 
+I love it! Thank you for bringing Rust into a handy format and creating this, Dids &lt;3
+So, all thanks go to Dids. I do some modifications here only for learning purposes.</p>
+
+<p>Use cloudconfig.yaml for a Docker one-click app on <a href="https://www.digitalocean.com/features/one-click-apps/docker/">Digital Ocean</a> and be sure to choose a droplet with at least 2GB RAM ;)</p>
 
 <h1>
-<a id="achtung-ende" class="anchor" href="#achtung-ende" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ACHTUNG ENDE</h1>
+<a id="whats-inside" class="anchor" href="#whats-inside" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What´s inside</h1>
 
-<h1>
-<a id="rust-server-that-runs-inside-a-docker-container" class="anchor" href="#rust-server-that-runs-inside-a-docker-container" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rust server that runs inside a Docker container</h1>
+<ol>
+<li>Fresh Rust (port 28015 rcon 28016)</li>
+<li>Fresh Oxide</li>
+<li>Fresh webrcon ( port 80)</li>
+<li>All server data is persisted on the host droplet in /steamcmd/rust</li>
+</ol>
 
-<p><strong>NOTE</strong>: This image will install/update on startup. The path <code>/steamcmd/rust</code> can be mounted on the host for data persistence.
-Also note that this image provides the new web-based RCON, so you should set <code>RUST_RCON_PASSWORD</code> to a more secure password.</p>
+<p>You should set <code>RUST_RCON_PASSWORD</code> to a more secure password.</p>
 
 <h1>
 <a id="how-to-run-the-server" class="anchor" href="#how-to-run-the-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to run the server</h1>
 
 <ol>
-<li>Set the environment variables you wish to modify from below (note the RCON password!)</li>
-<li>Optionally mount <code>/steamcmd/rust</code> somewhere on the host or inside another container to keep your data safe</li>
+<li>Select the docker oneclick-app and paste the cloud config data from the cloudconfig.yaml file</li>
+<li>Set/change the environment variables you wish to modify from below (especially the RCON password!)</li>
+<li>Spin up the droplet</li>
 <li>Enjoy!</li>
 </ol>
 
@@ -64,15 +87,10 @@ RUST_RCON_PASSWORD (DEFAULT: "changeme" - RCON server password, please change th
 RUST_RESPAWN_ON_RESTART (DEFAULT: "0" - Controls whether to respawn resources on startup)
 RUST_DISABLE_AUTO_UPDATE (DEFAULT: "0" - Disables automatic updating on startup)
 </code></pre>
+      </section>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/Galaxxius/dockerust">Dockerust</a> is maintained by <a href="https://github.com/Galaxxius">Galaxxius</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
 </html>
