@@ -5,6 +5,7 @@ runcmd:
   - ufw allow 28015/udp
   - ufw allow 28016/tcp
   - ufw allow 80/tcp
+  - ufw allow 22/tcp
   - ufw enable
   - mkdir -p /steamcmd/rust
   - docker run -p 28015:28015/tcp -p 28015:28015/udp -p 28016:28016 -p 80:8080 -v /steamcmd/rust:/steamcmd/rust -e RUST_RESPAWN_ON_RESTART=1 -e RUST_RCON_PASSWORD="changeme" --name dockerust galaxxius/dockerust:latest
