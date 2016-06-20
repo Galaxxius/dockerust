@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 MAINTAINER galaxxius
 
@@ -12,6 +12,7 @@ RUN apt-get install -y \
     python-software-properties \
     lib32gcc1 \
     libstdc++6 \
+    libstdc++6:i386 \
     curl \
     wget \
     bsdtar \
