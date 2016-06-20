@@ -12,7 +12,6 @@ RUN apt-get install -y \
     python-software-properties \
     lib32gcc1 \
     libstdc++6 \
-    libstdc++6:i386 \
     curl \
     wget \
     bsdtar \
